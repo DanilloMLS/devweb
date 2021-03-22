@@ -1,0 +1,32 @@
+body {
+	/*a cor fica no lugar da imagem se a mesma não carregar*/
+	background: #d2d2c1 url('img/fundo.png');
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+	color: #585858;
+	font-weight: 900;
+	padding: 5px;
+	text-decoration: none;
+}
+
+h4 {
+	color: #585858;
+	
+}
+
+.menu {
+	background: #c5c5b2;
+	padding: 20px 20px 20px 20px;
+}
+
+.texto {
+	padding: 10px;
+	background-color: #e8e8d9;
+	
+}
+
+.fotocampanha {
+	border: 10px solid #c3c3ae;
+}

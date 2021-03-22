@@ -1,0 +1,43 @@
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul a {
+	width: 200px;
+	height: 40px;
+	display: block;
+	/*border: 1px solid red;*/
+	color: #000;
+	text-decoration: none;
+	text-indent: 40px;
+	line-height: 40px;
+	background: #f7b600 url(../img/menu.png) no-repeat left center;
+
+}
+
+a:hover {
+	background-position: right bottom;
+	background-color: #f99200;
+	color: #fff;
+}
+
+
+/*elementos a dentro de #home e dentro de .home
+  mais classes e ids podem ser usados para mais navegações
+*/
+#home .home a,
+#sobre .sobre a,
+#servicos .servicos a,
+#noticias .noticias a,
+#contato .contato a {
+	background-position: right bottom;
+	background-color: #f99200;
+	color: #fff;
+}
+
+/*li {
+	padding: 5px 20px;
+	background: url(../img/seta.png) no-repeat left center;
+}*/
