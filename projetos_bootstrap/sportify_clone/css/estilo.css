@@ -1,0 +1,36 @@
+/*
+* 
+* @author Jamilton Damasceno
+*/
+
+body {
+    background: url('../img/capa.png'),
+                url('../img/ruido.png'),
+                linear-gradient(50deg,#ff4169,#7c26f8);
+    background-attachment: fixed;
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+.barra-transparente {
+    padding: 15px 0px;
+	background: rgba(0,0,0,0.6);
+}
+
+.divisor {
+    width: 1px;
+    background: white;
+    margin: 12px 15px;
+}
+
+.navbar-light .nav-item .nav-link {
+    color: white;
+}
+
+.navbar-light .nav-item .nav-link:hover {
+    color: turquoise;
+}
+
+.navbar-light .navbar-toggler {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.5);
+}
