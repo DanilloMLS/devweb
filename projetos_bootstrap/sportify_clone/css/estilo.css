@@ -1,14 +1,66 @@
-/*
-* 
-* @author Jamilton Damasceno
-*/
+html, body, #home {
+	height: 100%;
+	overflow-x: hidden;
+}
+
+#home {
+    text-align: center;
+}
 
 body {
     background: url('../img/capa.png'),
                 url('../img/ruido.png'),
                 linear-gradient(50deg,#ff4169,#7c26f8);
-    background-attachment: fixed;
+    background-attachment: fixed; /*fixa o background*/
     font-family: Helvetica,Arial,sans-serif;
+}
+
+h1 {
+    color: white;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 3em;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+#servicos {
+    background: white;
+}
+
+#servicos h2, #servicos h3 {
+    color: #7c25f8;
+}
+
+.caixa {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.albuns {
+    padding: 10px 0px;
+}
+
+#recursos {
+    color: white;
+}
+
+#recursos h2 {
+    color: white;
+}
+
+#recursos h3 {
+    color: #9bf0e1;
 }
 
 .barra-transparente {
@@ -22,6 +74,7 @@ body {
     margin: 12px 15px;
 }
 
+/*cor dos link da barra de navegação*/
 .navbar-light .nav-item .nav-link {
     color: white;
 }
@@ -33,4 +86,78 @@ body {
 .navbar-light .navbar-toggler {
     color: white;
     border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-custom {
+    color: white;
+	border-radius: 500px;
+	-webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    text-transform: uppercase;
+    transition: background 0.4s, color 0.4s;
+    padding: 10px 20px;
+}
+
+.btn-roxo {
+	background: #7c25f8;
+}
+
+/*mantém a cor do texto*/
+.btn-roxo:hover {
+	background: #6207e3;
+	color: white;
+}
+
+.btn-branco {
+	border: 2px solid white;
+}
+
+.btn-branco:hover {
+	background-color: white;
+	color: black;
+}
+
+.rotacionar {
+    -ms-transform: rotate(30deg); /* IE 9 */
+    -webkit-transform: rotate(30deg); /* Chrome, Safari, Opera */
+    transform: rotate(30deg);
+	padding-left: 80px;
+}
+
+footer {
+    background: black;
+}
+
+@media (max-width: 575.98px) {
+    .btn-custom {
+        margin: 10px 15px;
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    h1 {
+        font-size: 3em;
+    }
+    .btn-custom {
+        margin: 10px 15px;
+    }
+}
+
+@media (min-width: 798px) and (max-width: 991.98px) {
+    h1 {
+        font-size: 4em;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    h1 {
+        font-size: 5em;
+    }
+}
+
+@media (min-width: 1200px) {
+    h1 {
+        font-size: 6em;
+    }
 }
