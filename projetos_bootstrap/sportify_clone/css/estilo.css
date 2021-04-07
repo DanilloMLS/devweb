@@ -34,6 +34,10 @@ h3 {
     letter-spacing: -0.04em;
 }
 
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}
+
 #servicos {
     background: white;
 }
