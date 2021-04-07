@@ -1,6 +1,6 @@
 html, body, #home {
 	height: 100%;
-	overflow-x: hidden;
+	overflow-x: hidden; /*esconde a barra e rolagem horizontal (eixo x)*/
 }
 
 #home {
@@ -11,7 +11,7 @@ body {
     background: url('../img/capa.png'),
                 url('../img/ruido.png'),
                 linear-gradient(50deg,#ff4169,#7c26f8);
-    background-attachment: fixed; /*fixa o background*/
+    background-attachment: fixed; /*fixa o background, ele não rola quando descemos a tela*/
     font-family: Helvetica,Arial,sans-serif;
 }
 
@@ -88,6 +88,12 @@ h3 {
     border-color: rgba(255, 255, 255, 0.5);
 }
 
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
 .btn-custom {
     color: white;
 	border-radius: 500px;
@@ -126,6 +132,37 @@ h3 {
 
 footer {
     background: black;
+    padding: 50px 0px 20px 0px;
+    position: relative;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    float: right;
+    margin-right: 10px;
+}
+
+footer h4 {
+    color: #919496;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+footer .navbar-nav a {
+    color: white;
+    font-size: 0.8em;
+}
+
+footer .navbar-nav a:hover {
+    color: turquoise;
+    text-decoration: none;
+}
+
+footer .navbar-nav {
+    margin-bottom: 10px;
 }
 
 @media (max-width: 575.98px) {
