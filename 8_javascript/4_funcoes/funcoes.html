@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+    <script>
+
+        function calcularAreaTerreno(largura, comprimento) {
+            var area = largura * comprimento
+            return area
+        }
+
+        //é possível passar mais parâmetros que o necessário, os adicionais serão desconsiderados
+        //passar parâmentros a menos não dá erro, o que não foi passado é 'undefined'
+        var area = calcularAreaTerreno(10,5)
+        document.write(area)        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
