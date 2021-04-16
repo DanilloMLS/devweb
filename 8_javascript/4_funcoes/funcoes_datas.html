@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções nativas - datas</title>
+    <script>
+        /* var data = new Date()
+        //com base na data do sistema operacional
+        //document.write(data.getDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear())
+
+        // adicionar/remover dias
+        document.write(data.toString())
+        data.setDate(data.getDate() + 720)
+        document.write('<hr/>')
+        document.write(data.toString())
+        document.write('<br/><br/> <hr/>')
+
+        // adicionar/remover meses
+        document.write(data.toString())
+        data.setMonth(data.getMonth() + 15)
+        document.write('<hr/>')
+        document.write(data.toString())
+        document.write('<br/><br/> <hr/>')
+        
+        // adicionar/remover anos
+        document.write(data.toString())
+        data.setFullYear(data.getFullYear() + 2)
+        document.write('<hr/>')
+        document.write(data.toString())
+        document.write('<br/><br/> <hr/>') */
+
+        //15/01/2017
+        var data1 = new Date(2017, 0, 15)
+
+        //23/02/2017
+        var data2 = new Date(2017, 1, 23)
+
+        document.write(data1.toString())
+        document.write('<hr/>')
+        document.write(data2.toString())
+
+        //obter quantidade de milisegundos a partir de 1/1/1970
+        document.write('<br/><br/><hr/>')
+        document.write(data1.getTime())
+        document.write('<hr/>')
+        document.write(data2.getTime())
+
+        document.write('<br/><br/><hr/>')
+
+        var ms_entre_datas = Math.abs(data1.getTime() - data2.getTime())
+
+        document.write(ms_entre_datas)
+
+        //quantos milissegundo tem um dia
+        document.write('<br/><br/><hr/>')
+        
+        var ms_dia = 1*24*60*60*1000
+        var dias = Math.ceil(ms_entre_datas / ms_dia)
+
+        document.write('1 dia tem: ' + ms_dia + ' milissegundos')
+
+        document.write('<br/><br/><hr/>')
+        document.write('Entre as datas existem: ' + dias + ' dias')
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
