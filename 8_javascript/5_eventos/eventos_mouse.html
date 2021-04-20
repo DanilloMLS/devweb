@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - mouse</title>
+
+    <script>
+        function acao() {
+            alert('1ª ação')
+        }
+
+        function acao2() {
+            alert('2ª ação')
+        }
+    </script>
+
+</head>
+<body>
+    <div onclick="acao()" style="background: #ccc; height: 150px; width: 150px;">Um clique</div>
+    <br>
+    <div ondblclick="acao()" style="background: #ccc; height: 150px; width: 150px;">Dois cliques</div>
+    <br>
+    <div onmouseup="acao()" style="background: #ccc; height: 150px; width: 150px;">Quando solta</div>
+    <br>
+    <div onmouseover="acao()" style="background: #ccc; height: 150px; width: 150px;">Quando passa o mouse</div>
+    <br>
+    <div onmouseout="acao()" style="background: #ccc; height: 150px; width: 150px;">Quando tira o mouse de cima</div>
+    <br>
+    <div onclick="acao()" onmouseout="acao2()" style="background: #ccc; height: 150px; width: 150px;">Ações</div>
+</body>
+</html>
