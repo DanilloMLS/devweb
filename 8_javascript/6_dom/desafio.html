@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio - DOM e eventos</title>
+    <script>
+        function eventoFoco() {
+            document.getElementById('campo_texto').style.backgroundColor = '#FFFF00'
+        }
+
+        function eventoSemFoco() {
+            var texto = document.getElementById('campo_texto').value
+            
+            if (texto.length < 3) {
+                document.getElementById('campo_texto').style.backgroundColor = 'red'
+            } else {
+                document.getElementById('campo_texto').style.backgroundColor = 'green'
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" onfocus="eventoFoco()" onblur="eventoSemFoco()" placeholder="Digite" id="campo_texto">
+</body>
+</html>

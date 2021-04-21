@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Manipulação de estilos</title>
+    <script>
+        function mudarEstilo(cor, largura, altura) {
+            document.getElementById('caixa').style.backgroundColor = cor
+            document.getElementById('caixa').style.height = altura
+            document.getElementById('caixa').style.width = largura
+        }
+    </script>
+</head>
+<body>
+    <h3>Manipução de estilos</h3>
+    <button type="button" onclick="mudarEstilo('#FF0000','200px')" id="botao_vermelho">Vermelho</button>
+    <button type="button" onclick="mudarEstilo('#00FF00','150px','20px')" id="botao_verde">Verde</button>
+    <button type="button" onclick="mudarEstilo('#0000FF','150px','200px')" id="botao_azul">Azul</button>
+
+    <hr>
+    <div style="border: solid 1px #000; width: 100px; height: 100px;" id="caixa">
+
+    </div>
+</body>
+</html>
