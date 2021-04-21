@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio - Arrays</title>
+    <script>
+        var objetos = Array('Cadeira','Impressora','Garfo')
+
+        function addItem() {
+            var valor = document.getElementById('txt_campo').value
+            valor = valor.trim()
+            
+            if (valor.length > 0) {
+
+                if (objetos.indexOf(valor) == -1) {
+                    objetos.push(valor)
+                    console.log(objetos)
+                    document.getElementById('txt_campo').value = ''
+                } else {
+                    alert('Item já existe')
+                }
+
+            } else {
+                alert('Informe um valor')
+            }
+            
+        }
+
+        function sortItems() {
+            objetos = objetos.sort()
+            console.log(objetos)
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt_campo">
+    <button type="button" onclick="addItem()" id="btn_adicionar">Adicionar</button>
+    <button type="button" onclick="sortItems()" id="btn_ordenar">Ordenar</button>
+</body>
+</html>
