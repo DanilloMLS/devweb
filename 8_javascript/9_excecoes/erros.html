@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tratamento de erros</title>
+    <script>
+
+        //throw new Error('Houve erro')
+
+        var a = Array()
+        a[1] = Array()
+        a[1]['nome'] = 'Fullmetal Alchemist'
+        a[1]['categoria'] = 'Anime'
+
+        function getVideo(video) {
+            
+            try {
+                console.log(a[0]['nome'])
+            } catch(e) {
+                console.log(e)
+                console.log('Deu erro!')
+                throw new Error('Houve erro')
+            } finally {
+                console.log('OK')
+            }
+        }
+
+        getVideo(a)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
