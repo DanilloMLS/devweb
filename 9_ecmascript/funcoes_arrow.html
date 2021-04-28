@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções - Arrow Functions</title>
+    <script>
+        let quadrado = function (x) {
+            return x*x
+        }
+
+        document.write(quadrado(2))
+
+        //parênteses não são obrigatórios em funções arrow com um parâmetro
+        let quad = (x) => {
+            return x*x
+        }
+
+        //código com return implícito
+        let quad2 = x => x*x
+
+        document.write(quad(5))
+        document.write(quad2(5))
+
+        let parOuImpar = x => {
+            if (x%2 === 0) {
+                return 'É par'
+            } else {
+                return 'É ímpar'
+            }
+        }
+
+        document.write(parOuImpar(9))
+
+        for (let x = 0; x<2; ++x) {
+            document.write(x)
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

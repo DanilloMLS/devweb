@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções - Parâmetros default</title>
+    <script>
+        //quando a função é chamada sem parâmetros, os mesmo assumem os valores default
+        function contarUmaHistoria(personagem = 'Fubá', atividade = 'correr', dono = 'João') {
+            document.write(`Era uma vez um cachorro chamado ${personagem}, ele adorava ${atividade}, seu dono era o ${dono}`)
+        }
+
+        //se ao menos um parâmetro, ele sobrepõe o valor default
+        contarUmaHistoria(undefined, 'pular')
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
