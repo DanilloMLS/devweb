@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+    <script>
+        //objeto literal
+        let a1 = {
+            cor: 'branco',
+            modelo: 'Airbus a380',
+            levantarVoo: function () {
+                console.log('Levantar Vôo')
+            }
+        }
+
+        let AviaoF = function () {
+            this.cor = 'Azul',
+            this.modelo = 'Boeing 787',
+            this.levantarVoo = function () {
+                console.log('Levantar Vôo')
+            }
+        }
+
+        let a2 = new AviaoF()
+
+        class AviaoC {
+            constructor() {
+                this.cor = 'Vermelho',
+                this.modelo = 'Embraer E-jets'
+            }
+
+            levantarVoo() {
+                console.Log('Levantar vôo')
+            }
+        }
+
+        let a3 = AviaoC()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
