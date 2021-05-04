@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prototype</title>
     <script>
+        //todos os objetos descendem de Object
         //objeto literal
         let a1 = {
             cor: 'branco',
@@ -15,6 +16,7 @@
             }
         }
 
+        //função construtora
         let AviaoF = function () {
             this.cor = 'Azul',
             this.modelo = 'Boeing 787',
@@ -36,10 +38,14 @@
             }
         }
 
-        let a3 = AviaoC()
+        let a3 = new AviaoC()
+
+        console.log(a1)
+        console.log(a2)
+        console.log(a3)
     </script>
 </head>
 <body>
-    
+
 </body>
 </html>

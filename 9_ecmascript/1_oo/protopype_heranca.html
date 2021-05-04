@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype - Herança</title>
+    <script>
+
+        //atributo global, deve ser implementado com cuidado
+        Object.prototype.attr50 = 'Z'
+
+        //Object.prototype
+        let animal = {
+            attr1: 'a'
+        }
+        
+        let vertebrado = {
+            __proto__: animal,
+            attr2: 'b'
+        }
+
+        let ave = {
+            __proto__: vertebrado,
+            attr3: 'c',
+            attr2: 'x'
+        }
+
+        console.log(ave.attr2, ave.attr1, ave.attr50)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
