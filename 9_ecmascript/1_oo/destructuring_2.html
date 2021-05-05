@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring - 2</title>
+    <script>
+        let produto = {
+            descricao: 'Notebook',
+            preco: 2500,
+            detalhes: {
+                fabricante: 'abc',
+                modelo: 'xyz'
+            }
+        }
+
+        //desconstrução de objetos, feita com chaves
+        //valores default só são usados se o objeto não tiver nenhum valor
+        //let {descricao,preco} = produto
+        //let {descricao:d,preco:p} = produto
+        let {
+            descricao:d, 
+            preco:p = 1000, 
+            desconto:d1 = 5, 
+            detalhes:{fabricante:f, modelo:m = 'Não informado'}
+        } = produto
+        console.log(d, p, d1, f, m)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
