@@ -48,10 +48,41 @@ class Bd {
         for (let i = 1; i <= id; i++) {
             let despesa = JSON.parse(localStorage.getItem(i))
             if (despesa != null) {
+                despesa.id = i
                 despesas.push(despesa)
             }
         }
         return despesas
+    }
+
+    pesquisar(d) {
+        let despesas = new Array()
+        despesas = this.recuperarTodosRegistros()
+
+        if (d.ano != "") {
+            despesas = despesas.filter(despesa => despesa.ano == d.ano)
+        }
+        if (d.mes != "") {
+            despesas = despesas.filter(despesa => despesa.mes == d.mes)
+        }
+        if (d.dia != "") {
+            despesas = despesas.filter(despesa => despesa.dia == d.dia)
+        }
+        if (d.tipo != "") {
+            despesas = despesas.filter(despesa => despesa.tipo == d.tipo)
+        }
+        if(d.descricao != "") {
+            despesas = despesas.filter(despesa => despesa.descricao == d.descricao)
+        }
+        if (d.valor != "") {
+            despesas = despesas.filter(despesa => despesa.valor == d.valor)
+        }
+        
+        return despesas
+    }
+
+    remover(id) {
+        localStorage.removeItem(id)
     }
 }
 
@@ -80,13 +111,18 @@ function cadastrarDespesa() {
     }
 }
 
-function carregaListaDespesas() {
-    let despesas = Array()
-    despesas = bd.recuperarTodosRegistros()
+function carregaListaDespesas(despesas = Array(), filtro = false) {
+    //let despesas = Array()
+    
+    if (despesas.length == 0 && filtro == false) {
+        despesas = bd.recuperarTodosRegistros()
+    }
     
 
     //selecionando o tbody da tabela
     let listaDespesas = document.getElementById('listaDespesas')
+    listaDespesas.innerHTML = ""
+
     despesas.forEach(function (d) {
         //console.log(d)
         let linha = listaDespesas.insertRow()
@@ -110,11 +146,29 @@ function carregaListaDespesas() {
         linha.insertCell(1).innerHTML = d.tipo
         linha.insertCell(2).innerHTML = d.descricao
         linha.insertCell(3).innerHTML = d.valor
+
+        let btn = document.createElement("button")
+        btn.className = 'btn btn-danger'
+        btn.innerHTML = '<i class="fas fa-times"></i>'
+        btn.id = 'id_despesa_'+d.id
+        btn.onclick = function () {
+            let id = this.id.replace('id_despesa_','')
+            bd.remover(id)
+            window.location.reload()
+        }
+        linha.insertCell(4).append(btn)
     })
 }
 
 //modifica o modal em caso de sucesso na gravação
 function sucessoGravacao() {
+    document.getElementById('ano').value = ''
+    document.getElementById('mes').value = ''
+    document.getElementById('dia').value = ''
+    document.getElementById('tipo').value = ''
+    document.getElementById('descricao').value = ''
+    document.getElementById('valor').value = ''
+
     document.getElementById('cabecalho').className = 'modal-header text-success'
     document.getElementById('textoCabecalho').innerHTML = 'Registro salvo'
     document.getElementById('mensagem').innerHTML = 'Dados gravados com sucesso'
@@ -129,4 +183,19 @@ function erroGravacao() {
     document.getElementById('mensagem').innerHTML = 'Todos os dados são obrigatórios'
     document.getElementById('botao').className = 'btn btn-danger'
     document.getElementById('botao').innerText = 'Voltar e corrigir'
+}
+
+function pesquisarDespesa() {
+    let ano = document.getElementById('ano').value
+    let mes = document.getElementById('mes').value
+    let dia = document.getElementById('dia').value
+    let tipo = document.getElementById('tipo').value
+    let descricao = document.getElementById('descricao').value
+    let valor = document.getElementById('valor').value
+
+    let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor)
+    despesas = bd.pesquisar(despesa)
+
+    carregaListaDespesas(despesas, true)
+    
 }
