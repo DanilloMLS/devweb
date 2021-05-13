@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO - Função Construtora - Encapsulamento</title>
+    <script>
+        let Carro = function () {
+            this.cor = 'Azul'
+            this.modelo = 'Chevette'
+            this.velocidadeAtual = 0
+            this.velocidadeMaxima = 200
+            
+            this.acelerar = function () {
+                //this.velocidadeAtual += 10
+                let velocidade = this.getVelocidadeAtual() + 50
+                if (velocidade > this.velocidadeMaxima) {
+                    velocidade = this.velocidadeMaxima
+                }
+                this.setVelocidadeAtual(velocidade)
+            }
+
+            this.getVelocidadeAtual = function () {
+                return this.velocidadeAtual
+            }
+
+            this.setVelocidadeAtual = function (velocidadeAtual) {
+                this.velocidadeAtual = velocidadeAtual
+            }
+        }
+
+        let carro = new Carro()
+        console.log(carro.velocidadeAtual)
+        carro.acelerar()
+        console.log(carro.velocidadeAtual)
+        carro.acelerar()
+        console.log(carro.velocidadeAtual)
+        carro.acelerar()
+        console.log(carro.velocidadeAtual)
+        carro.acelerar()
+        console.log(carro.velocidadeAtual)
+        carro.acelerar()
+        console.log(carro.velocidadeAtual)
+        carro.acelerar()
+        console.log(carro.velocidadeAtual)
+        carro.acelerar()
+        console.log(carro.velocidadeAtual)
+
+        let Carro2 = function () {
+
+            //atributos privados, visíveis somente dentro da função construtora
+            var velocidadeMaxima = 180
+            var quilometrosRodados = 0
+
+            //esse atributos podem ser modificados livremente fora da função construtora
+            this.cor = 'Azul'
+            this.modelo = 'Chevette'
+            this.velocidadeAtual = 0
+            //this.velocidadeMaxima = 200
+            
+            this.acelerar = function () {
+                //this.velocidadeAtual += 10
+                let velocidade = this.getVelocidadeAtual() + 50
+                if (velocidade > velocidadeMaxima) {
+                    velocidade = velocidadeMaxima
+                }
+                this.setVelocidadeAtual(velocidade)
+
+                setQuilometrosRodados(0.07)
+                console.log(quilometrosRodados)
+            }
+
+            //médodos público
+            this.getVelocidadeAtual = function () {
+                return this.velocidadeAtual
+            }
+
+            this.setVelocidadeAtual = function (velocidadeAtual) {
+                this.velocidadeAtual = velocidadeAtual
+            }
+
+            //método privado
+            var setQuilometrosRodados = function (q) {
+                quilometrosRodados += q
+            }
+        }
+
+        let carro2 = new Carro2()
+        console.log(carro2.velocidadeAtual)
+        carro2.acelerar()
+        console.log(carro2.velocidadeAtual)
+        carro2.acelerar()
+        console.log(carro2.velocidadeAtual)
+        carro2.acelerar()
+        console.log(carro2.velocidadeAtual)
+        
+        console.log(carro)
+        console.log(carro2)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

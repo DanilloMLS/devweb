@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO - Pilar da Abstração - Reflexão</title>
+    <script>
+        
+        class Cadeira {
+            constructor(qtde_pernas, giratoria, cor) {
+                this.qtde_pernas = qtde_pernas
+                this.giratoria = giratoria
+                this.cor = cor
+            }
+
+            girarCadeira() {
+                if (this.giratoria === true) {
+                    console.log('Girou')
+                } else {
+                    console.log('Não giratória')
+                }
+            }
+        }
+
+        
+        /* cadeira.girarCadeira() */
+
+        let cadeiras = new Array()
+        let cadeira = new Cadeira(4,false,'azul')
+        let cadeira2 = new Cadeira(4,true,'vermelha')
+
+        cadeiras.push(cadeira)
+        cadeiras.push(cadeira2)
+        cadeiras[1].girarCadeira()
+
+        console.log(cadeiras)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

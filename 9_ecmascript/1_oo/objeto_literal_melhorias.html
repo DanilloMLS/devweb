@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Literal - Melhorias</title>
+    <script>
+        
+        let nome = 'Danillo'
+        let idade = 32
+        let sexo = 'Masculino'
+        let profissao = 'Programador'
+
+        //os objetos literais podem ser menos verbosos
+        let objeto = {
+            nomeTeste: nome,
+            idade,
+            sexo,
+            profissao,
+            exibirResumo() {
+                console.log(`${this.nomeTeste}, ${this.idade} anos, ${this.sexo} é ${this.profissao}`)
+            }
+        }
+
+        console.log(objeto)
+        objeto.exibirResumo()
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

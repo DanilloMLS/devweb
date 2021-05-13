@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO - Função Factory</title>
+    <script>
+        let Bicicleta1 = {
+            cor: 'Branca',
+            marcha: 'única',
+            aro: 12,
+            pedalar() {
+                console.log('Método pedalar')
+            }
+        }
+
+        let Bicicleta2 = {
+            cor: 'Vermelha',
+            marcha: '18',
+            aro: 14,
+            pedalar() {
+                console.log('Método pedalar')
+            }
+        }
+
+        console.log(Bicicleta1)
+
+        //Uso do padrão de projeto Factory
+        let BicicletaFactory = function (cor, marcha, aro) {
+            //lógica
+            //requisição http
+            //resposta http
+            return {
+                cor: cor,
+                marcha: marcha,
+                aro: aro,
+                pedalar() {
+                    console.log('Método pedalar')
+                }
+            }
+        }
+
+        let Bicicleta3 = new BicicletaFactory('Vermelha', '18', 26)
+        console.log(Bicicleta3)
+
+        let Bicicleta4 = new BicicletaFactory('Azul', '15', 18)
+        console.log(Bicicleta4)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

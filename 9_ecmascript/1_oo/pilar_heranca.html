@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OO - Pilar da Herança</title>
+    <script>
+
+        //superclasse, seus atributos e métodos são herdados pelas subclasses
+        class Animal {
+            constructor() {
+                this._cor = ''
+                this._tamanho = null
+                this.peso = null
+            }
+
+            dormir() {
+                console.log('Dormir')
+            }
+        }
+
+        //assim como em Passaro, Cachorro usa atributos e métodos de Animal
+        class Cachorro extends Animal {
+            constructor() {
+                super()
+                this._orelhas = 'grandes e caídas'
+            }
+
+            correr() {
+                console.log('Correr')
+            }
+
+            rosnar() {
+                console.log('Rosnar')
+            }
+        }
+
+        //pássaro pode usar os atributos e métodos da classe Animal
+        class Passaro extends Animal {
+            constructor() {
+                super()
+                this._bico = 'curto'
+            }
+
+            voar() {
+                console.log('Voar')
+            }
+        }
+
+        //papagaio terá os atributos de pássaro e de animal, além de acesso aos respectivos médotos
+        class Papagaio extends Passaro {
+            constructor() {
+                super()
+                this._sabeFalar = true
+            }
+
+            falar() {
+                console.log('Falar')
+            }
+        }
+
+        let cachorro = new Cachorro()
+        let passaro = new Passaro()
+        let papagaio = new Papagaio()
+
+        console.log(papagaio)
+        papagaio.dormir()
+        papagaio.voar()
+        papagaio.falar()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
