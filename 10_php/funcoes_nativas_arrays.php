@@ -72,6 +72,10 @@
 
         $string2 = implode(',',$array6);
         echo $string2;
+
+        echo '<hr>';
+
+        //in_array(): verifica se o valor está no array
     ?>
 </body>
 </html>
