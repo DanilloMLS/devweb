@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            //recuperando o conteúdo
+            console.log($('#div1').html())
+            console.log($('#div2').html())
+
+            //sobrescrevendo o conteúdo interno
+            $('#div2').html('')
+            $('#div1').html('Oi')
+            console.log($('#div1').html())
+            console.log($('#div2').html())
+
+            //é possível colocar tags dentro de tags
+            $('#div1').html('<div style="border:solid 5px rgb(117, 55, 55); width:50px; height:50px;">asd</div>')
+
+            //e também texto formatado
+            $('#div2').html('Novo <strong>texto</strong>')
+
+            //mas se usar text, as tags serão impressas como texto normal e não renderizadas
+            $('#div2').text('Novo <strong>texto</strong>')
+        })
+    </script>
+
+</head>
+<body>
+    <div id="div1" style="border:solid 1px #000; width:150px; height:150px;">
+        Div 1
+    </div>
+    <div id="div2" style="border:solid 1px #000; width:150px; height:150px;">
+        <h1>Div 2</h1>
+        <p>Texto</p>
+        <div>
+            Texto...
+        </div>
+    </div>
+</body>
+</html>

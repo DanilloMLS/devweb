@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            //recupera o atributo
+            console.log($('img').attr('src'))
+
+            //manupulação de atributos
+            console.log($('img').attr('src','img/esfera_2.png'))
+            console.log($('img').attr('border',20))
+
+            //alteração de texto de input
+            $('input').attr('value','Ainda sou um input')
+        })
+    </script>
+</head>
+<body>
+    <img src="img/esfera_1.png" border="5" alt="" srcset="">
+    <img src="img/esfera_2.png" alt="" srcset="">
+    <br/>
+    <input type="text" name="" id="" value="Sou um input">
+</body>
+</html>
