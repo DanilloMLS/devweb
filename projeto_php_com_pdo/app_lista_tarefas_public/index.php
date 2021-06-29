@@ -1,3 +1,12 @@
+<?php
+	$acao = 'recuperarPendente';
+	require 'tarefa_controller.php';
+
+	/* echo '<pre>';
+	print_r($tarefas);
+	echo '</pre>'; */
+?>
+
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -7,6 +16,59 @@
 		<link rel="stylesheet" href="css/estilo.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+		<script>
+		
+		//método para edição de tarefa
+			function editar(id, txtTarefa) {
+
+				//formulário para alteração da tarefa, método: post
+				let form = document.createElement('form');
+				form.action = 'index.php?pag=index&acao=atualizar';
+				form.method = 'post';
+				form.className = 'row';
+
+				//campo hidden para o id da tarefa
+				let idTarefa = document.createElement('input');
+				idTarefa.type = 'hidden';
+				idTarefa.name = 'id';
+				idTarefa.value = id;
+
+				//campo texto para o novo nome da tarefa
+				let inputTarefa = document.createElement('input');
+				inputTarefa.type = 'text';
+				inputTarefa.name = 'tarefa';
+				inputTarefa.className = 'form-control col-9';
+				inputTarefa.value = txtTarefa;
+
+				//botão submit
+				let botao = document.createElement('button');
+				botao.type = 'submit';
+				botao.className = 'btn btn-info col-3';
+				botao.innerHTML = 'Ok';
+
+				//inclusão dos elementos no form
+				form.appendChild(idTarefa);
+				form.appendChild(inputTarefa);
+				form.appendChild(botao);
+
+				//apresentação do form na página
+				let tarefa = document.getElementById('tarefa_'+id);
+				tarefa.innerHTML = '';
+				tarefa.insertBefore(form, tarefa[0]);
+			}
+
+			function remover(id) {
+				
+				location.href = 'index.php?pag=index&acao=remover&id='+id;
+			}
+
+			function marcarRealizada(id) {
+				/* alert('OI '+id); */
+				location.href = 'index.php?pag=index&acao=marcarRealizada&id='+id;
+			}
+		
+		</script>
 	</head>
 
 	<body>
@@ -36,23 +98,20 @@
 								<h4>Tarefas pendentes</h4>
 								<hr />
 
-								<div class="row mb-3 d-flex align-items-center tarefa">
-									<div class="col-sm-9">Lavar o carro</div>
-									<div class="col-sm-3 mt-2 d-flex justify-content-between">
-										<i class="fas fa-trash-alt fa-lg text-danger"></i>
-										<i class="fas fa-edit fa-lg text-info"></i>
-										<i class="fas fa-check-square fa-lg text-success"></i>
-									</div>
-								</div>
+								<?php foreach ($tarefas as $key => $tarefa) { ?>
+									<div class="row mb-3 d-flex align-items-center tarefa">
+										<div class="col-sm-9" id="tarefa_<?= $tarefa->id ?>">
+											<?= $tarefa->tarefa ?>
+										</div>
+										<div class="col-sm-3 mt-2 d-flex justify-content-between">
+											<i class="fas fa-trash-alt fa-lg text-danger" onclick="remover(<?= $tarefa->id ?>)"></i>
+											<i class="fas fa-edit fa-lg text-info" onclick="editar(<?= $tarefa->id ?>, '<?= $tarefa->tarefa ?>')"></i>
+											<i class="fas fa-check-square fa-lg text-success" onclick="marcarRealizada(<?= $tarefa->id ?>)"></i>
 
-								<div class="row mb-3 d-flex align-items-center tarefa">
-									<div class="col-sm-9">Passear com o cachorro</div>
-									<div class="col-sm-3 mt-2 d-flex justify-content-between">
-										<i class="fas fa-trash-alt fa-lg text-danger"></i>
-										<i class="fas fa-edit fa-lg text-info"></i>
-										<i class="fas fa-check-square fa-lg text-success"></i>
+										</div>
 									</div>
-								</div>
+								<?php } ?>
+
 							</div>
 						</div>
 					</div>
