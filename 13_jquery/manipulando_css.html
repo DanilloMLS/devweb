@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+
+		<style>
+			.campo {
+				border: none;
+				padding: 10px;
+			}
+
+			.padrao {
+				background-color: #ddd;
+			}
+
+			.erro {
+				background-color: red;
+			}
+		</style>
+
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(() => {
+				//$('#topo').css('background-color','#155661').css('margin','0px').css('padding','10px 20px 10px 20px')
+				$('#topo').css({
+					'background': '#155661',
+					'margin': 	  '0px',
+					'padding':	  '10px 20px 10px 20px'
+				})
+				$('body').css('margin','0px')
+				$('h1').css({
+					'color':  '#fff',
+					'margin': '0px'
+				})
+
+				//addClass('class'): adiciona uma ou mais classes no elemento
+				$('input').addClass('campo padrao')
+				$('textarea').addClass('erro')
+
+				//hasClass('classe'): verifica se a classe existe no elemento
+				console.log($('textarea').hasClass('padrao'))
+
+				//removeClass('class'): remove a classe especificada do elemento
+				$('textarea').removeClass('erro')
+			})
+		</script>
+	</head>
+
+	<body>
+		
+		<div id="topo">
+			<h1>Barra de navegação da aplicação</h1>
+		</div>
+
+		<div>
+			<h3>Contato</h3>
+			<hr />
+
+			<p>Nome:</p>
+			<input type="text" />
+			<br />
+
+			<p>Email:</p>
+			<input type="text" />
+			<br />
+
+			<p>Mensagem:</p>
+			<textarea></textarea>
+			<br />
+
+			<button type="button">Enviar</button>
+		</div>
+	</body>
+
+</html>
