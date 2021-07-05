@@ -10,6 +10,10 @@
 				width: 80px;
 				height: 80px;
 			}
+
+			.inputFocado {
+				background-color: red;
+			}
 		</style>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -58,6 +62,60 @@
 				//caso haja algum elemento interno, fazendo os métodos executarem várias vezes sem necessidade
 				//então o melhor, em geral, é usar mouseenter e mouseleave em vez de mouseover/mouseout
 
+				//eventos do teclado
+				$('#teclado').keydown((e) => {
+					if (e.keyCode < 97 || e.keyCode > 100) {
+						let txt = $(e.target).val()
+						txt = txt.slice(0,-1)
+						//console.log(txt)
+						$(e.target).val(txt)
+					}
+				})
+
+				/* $('#teclado').keyup((e) => {
+					$('#resultadoTecla2').html('Tecla Liberada')
+					
+					if (e.keyCode == 13) {
+						let txt = $(e.target).val()
+						console.log(txt)
+					}
+				}) */
+
+				//eventos de form
+				$('#nome').focus((e) => {
+					console.log('Foco em (nome)')
+					$(e.target).addClass('inputFocado')
+				})
+
+				$('#email').focus((e) => {
+					console.log('Foco em (e-mail)')
+					$(e.target).addClass('inputFocado')
+				})
+
+				$('#nome').blur((e) => {
+					console.log('Perda de foco em (nome)')
+					$(e.target).removeClass('inputFocado')
+				})
+
+				$('#email').blur((e) => {
+					console.log('Perda de foco em (e-mail)')
+					$(e.target).removeClass('inputFocado')
+				})
+
+				$('#opcao').change((e) => {
+					console.log($(e.target).val())
+				})
+
+				$('form').submit((e) => {
+					e.preventDefault() //pode ser usado em outras situações que não para um form
+					console.log('Enviado')
+				})
+
+				//mais de um elemento pode ser associado ao mesmo evento
+				/* $('elemento1','elemento2').evento((e) => {
+					comandos...
+				}) */
+ 
 			})
 		</script>
 	</head>
@@ -91,26 +149,27 @@
 
 			<h3>Teclado</h3>
 			<span>Nome:</span>
-			<input type="text" />
-			<span>Resultado do evento sobre o input</span>
+			<input type="text" id="teclado"/>
+			<span id="resultadoTecla1">Resultado do evento sobre o input</span>
+			<span id="resultadoTecla2">Resultado do evento sobre o input</span>
 			<hr />
 
 			<h3>Formulário</h3>
 			<form>
 				<span>Nome:</span>
-				<input type="text" />
+				<input type="text" id="nome"/>
 
 				<span>E-mail:</span>
-				<input type="text" />
+				<input type="text" id="email"/>
 
 				<span>Motivo do contato:</span>
-				<select>
+				<select id="opcao">
 					<option value="">-- Selecione --</option>
 					<option value="duvida">Dúvida</option>
 					<option value="sugestao">Sugestão</option>
 				</select>
 				
-				<button type="button">Enviar</button>
+				<button type="submit">Enviar</button>
 			</form>
 		</div>
 	</body>
