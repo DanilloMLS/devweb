@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(() => {
+            //obtem o valor (value) do elemento correspondente
+            console.log($('#nome').val())
+            console.log($('#origem').val())
+
+            //é possível também a alteração do value
+            console.log($('#nome').val("Danillo"))
+            console.log($('#origem').val("2"))
+
+
+            //obtendo elemento (tag) do item marcado
+            console.log($('.sexo:checked'))
+            console.log($('.sexo:checked').val()) //só o value
+
+            console.log($('.interesse'))
+            console.log($('.interesse:checked'))
+            
+            //obtendo values de um conjunto de checkboxes
+            $.each($('interesse:checked'), (indice,value) => {
+                console.log(indice,value)
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <p>Nome:</p>
+    <input type="text" id="nome"/>
+
+    <br/>
+
+    <p>Onde você nos encontrou?</p>
+    <select name="" id="origem">
+        <option value="1">Google</option>
+        <option value="2">Rádio</option>
+        <option value="3">Facebook</option>
+        <option value="4">Outros meios</option>
+    </select>
+
+    <br/>
+
+    <p>Sexo:</p>
+    <input type="radio" name="sexo" id="" class="sexo" value="f">Feminino</input>
+    <input type="radio" name="sexo" id="" class="sexo" value="m">Masculino</input>
+    
+    <br/>
+
+    <p>Interesses:</p>
+    <input type="checkbox" name="interesse" id="" class="interesse" value="php">PHP</input>
+    <input type="checkbox" name="interesse" id="" class="interesse" value="js">JavaScript</input>
+    <input type="checkbox" name="interesse" id="" class="interesse" value="angular">Angular</input>
+    <input type="checkbox" name="interesse" id="" class="interesse" value="nodejs">NodeJS</input>
+
+</body>
+</html>

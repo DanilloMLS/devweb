@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>jQuery</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>Texto</h1>
+        <div class="diversos1">
+            Div1
+        </div>
+        <div>
+            Div2
+        </div>
+
+        <ul class="diversos1">
+            <li class="exemplo1">Menu 1 - Item 1</li>
+            <li class="exemplo1">Menu 1 - Item 2</li>
+            <li>Menu 1 - Item 3</li>
+        </ul>
+
+        <ul class="lista1">
+            <li class="exemplo1">Menu 2 - Item 1</li>
+            <li>Menu 2 - Item 2</li>
+            <li>Menu 2 - Item 3</li>
+        </ul>
+
+        <input type="text" placeholder="campo 1" class="diversos2"/>
+
+        <select name="" id="" class="diversos2">
+            <option value="" class="op1">--- Selecione ---</option>
+            <option value="" class="op1">Opção 1</option>
+            <option value="" class="op1">Opção 2</option>
+            <option value="" class="op1">Opção 2</option>
+        </select>
+
+        <br/>
+
+        <img src="../13_jquery/img/carro.jpg" alt="" srcset="" id="foto">
+    </body>
+
+    <script>
+        //selecionar por classe dentro de tag
+        console.log($('ul .exemplo1'))
+
+        //selecionar por classe dentro de outra
+        console.log($('ul.lista1 .exemplo1'))
+
+        //manipulação do array de retorno dos elementos
+        console.log($('.diversos2 .op1:first'))
+        console.log($('.diversos2 .op1:even'))
+        console.log($('.diversos2 .op1:odd'))
+        console.log($('.diversos2 .op1:last'))
+    </script>
+</html>

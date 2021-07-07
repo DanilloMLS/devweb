@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            //acrescentando um novo elemento (tag) no final de lista1
+            $('#lista1').append('<li>Item 4</li>')
+
+            //no início
+            $('#lista1').prepend('<li>Item 0</li>')
+
+            //uso de append e prepend na div
+            $('#lista2').append('<li>Item 4</li>')
+            $('#lista2').prepend('<li>Item 4</li>')
+
+            //after e before: inserem depois e antes do elemento
+            $('#linha').before('<p>Antes</p>')
+            $('#linha').after('<p>Após</p>')
+
+            //substituição de nós filhos
+            $('#lista1').html('<p>Substituição</p>')
+
+            //remoção de tags
+            $('#lista1').remove()
+            $('#linha').remove()
+        })
+    </script>
+</head>
+<body>
+    <ul id="lista1">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <div id="lista2">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+    </div>
+
+    <hr id="linha"/>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+
+		<style>
+			#divExterna {
+				background-color: #ccc;
+				width: 80px;
+				height: 80px;
+			}
+
+			.inputFocado {
+				background-color: red;
+			}
+		</style>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(() => {
+				//evento onload
+				$('#onload').html('Página carregada')
+				
+				//os eventos aqui estão associados à janela do navegador
+				$(window).scroll(() => {
+					$('#scroll').html('Scroll acionado')
+				})
+				$(window).resize(() => {
+					$('#resize').html('Resize').css('background-color','red')
+				})
+
+				//eventos que estão associados a algum elemento
+				/* $('#div1').scroll(function() {
+					$(this).css('background-color','blue')
+				}) */
+				/* $('#div1').scroll(e => {
+					$(e.target).css('background-color','blue')
+				}) */
+				$('#div1').scroll(() => {
+					$('#div1').css('background-color','blue')
+				})
+
+				
+				//eventos do mouse
+				$('#btn1').mousedown(() => {
+					$('#div2').css('background-color','green')
+				})
+				$('#btn1').mouseup(() => {
+					$('#div2').css('background-color','blue')
+				})
+
+				$('#btn2').dblclick(() => {
+					$('#div2').css('background-color','yellow')
+				})
+
+				$('#div2').mousemove((e) => {
+					$('#resultado').html(e.offsetX+', '+e.offsetY)
+				})
+
+				//mouseover e mouseenter são similares, mas esse pode causar "borbulhamento"
+				//caso haja algum elemento interno, fazendo os métodos executarem várias vezes sem necessidade
+				//então o melhor, em geral, é usar mouseenter e mouseleave em vez de mouseover/mouseout
+
+				//eventos do teclado
+				$('#teclado').keydown((e) => {
+					if (e.keyCode < 97 || e.keyCode > 100) {
+						let txt = $(e.target).val()
+						txt = txt.slice(0,-1)
+						//console.log(txt)
+						$(e.target).val(txt)
+					}
+				})
+
+				/* $('#teclado').keyup((e) => {
+					$('#resultadoTecla2').html('Tecla Liberada')
+					
+					if (e.keyCode == 13) {
+						let txt = $(e.target).val()
+						console.log(txt)
+					}
+				}) */
+
+				//eventos de form
+				$('#nome').focus((e) => {
+					console.log('Foco em (nome)')
+					$(e.target).addClass('inputFocado')
+				})
+
+				$('#email').focus((e) => {
+					console.log('Foco em (e-mail)')
+					$(e.target).addClass('inputFocado')
+				})
+
+				$('#nome').blur((e) => {
+					console.log('Perda de foco em (nome)')
+					$(e.target).removeClass('inputFocado')
+				})
+
+				$('#email').blur((e) => {
+					console.log('Perda de foco em (e-mail)')
+					$(e.target).removeClass('inputFocado')
+				})
+
+				$('#opcao').change((e) => {
+					console.log($(e.target).val())
+				})
+
+				$('form').submit((e) => {
+					e.preventDefault() //pode ser usado em outras situações que não para um form
+					console.log('Enviado')
+				})
+
+				//mais de um elemento pode ser associado ao mesmo evento
+				/* $('elemento1','elemento2').evento((e) => {
+					comandos...
+				}) */
+ 
+			})
+		</script>
+	</head>
+
+	<body>
+		
+		<div id="topo">
+			<h1>Eventos</h1>
+		</div>
+
+		<div>
+			<h3>Browser</h3>
+			<span>Onload: </span><span id="onload">?</span><br />
+			<span>Scroll: </span><span id="scroll">?</span><br />
+			<span>Resize Window: </span><span id="resize">?</span>
+			<div id="div1" style="height: 100px; width: 100px; border: solid 1px #000; overflow-y: scroll;">
+				<br><br><br><br><br>
+				<br><br><br><br><br>
+			</div>
+			<hr />
+
+			<h3>Mouse</h3>
+			<button id="btn1" type="button">Clique aqui</button>
+			<button id="btn2" type="button">Clique aqui 2x</button>
+			<div id="div2" style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
+			<span>Resultado do evento sobre a div: </span><span id="resultado"></span>
+
+			<div id="divExterna"></div>
+			<span>Div externa: </span><span id="resultadoDiv1"></span>
+			<hr />
+
+			<h3>Teclado</h3>
+			<span>Nome:</span>
+			<input type="text" id="teclado"/>
+			<span id="resultadoTecla1">Resultado do evento sobre o input</span>
+			<span id="resultadoTecla2">Resultado do evento sobre o input</span>
+			<hr />
+
+			<h3>Formulário</h3>
+			<form>
+				<span>Nome:</span>
+				<input type="text" id="nome"/>
+
+				<span>E-mail:</span>
+				<input type="text" id="email"/>
+
+				<span>Motivo do contato:</span>
+				<select id="opcao">
+					<option value="">-- Selecione --</option>
+					<option value="duvida">Dúvida</option>
+					<option value="sugestao">Sugestão</option>
+				</select>
+				
+				<button type="submit">Enviar</button>
+			</form>
+		</div>
+	</body>
+
+</html>
