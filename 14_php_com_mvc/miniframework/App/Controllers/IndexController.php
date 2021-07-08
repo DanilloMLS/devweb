@@ -1,5 +1,6 @@
 <?php
-
+    //o Composer usa o Autoload PSR-4 para não precisarmos usar require ou require_once
+    //em cada arquivo, mas é necessário usar namespaces
     namespace App\Controllers;
     
     class IndexController {
