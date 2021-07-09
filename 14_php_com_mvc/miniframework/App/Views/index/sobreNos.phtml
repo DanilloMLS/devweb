@@ -13,15 +13,12 @@
 <body>
     <div>
         <h1>Sobre nós</h1>
-        <p>Página institucional</p>
-        <br>
         <hr>
-        <br>
-        <?php
-            foreach ($this->view->dados as $key => $value) {
-                echo $value;
-            }
-        ?>
+        <?php foreach ($this->view->dados as $key => $value) { ?>
+            <h1><?= $value['titulo'] ?></h1>
+            <p><?= $value['descricao'] ?></p>
+            <hr>
+        <?php  } ?>
     </div>
 </body>
 </html>
