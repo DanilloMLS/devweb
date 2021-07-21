@@ -36,7 +36,7 @@ class IndexController extends Action {
 		if ($usuario->validarCadastro() && count($usuario->getUsuarioPorEmail()) == 0) {
 			
 			$usuario->salvar();
-			$this->render('cadastro');
+			$this->render('cadastro'); //um header deveria ser usado aqui
 		} else {
 
 			$this->view->usuario = array(
