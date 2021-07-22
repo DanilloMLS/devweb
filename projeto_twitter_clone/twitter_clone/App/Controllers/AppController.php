@@ -45,11 +45,32 @@ class AppController extends Action{
         if ($pesquisarPor != '') {
             $usuario = Container::getModel('Usuario');
             $usuario->__set('nome', $pesquisarPor);
+            $usuario->__set('id', $_SESSION['id']);
             $usuarios = $usuario->getAll();
         }
         $this->view->usuarios = $usuarios;
 
         $this->render('quemSeguir');
+    }
+
+    public function acao() {
+        $this->validaAutenticacao();
+        
+        $usuario_seguidor = Container::getModel('UsuarioSeguidor');
+
+        //id do usuário que será seguido
+        $id_usuario_seguindo = $_GET['id_usuario'] ? $_GET['id_usuario'] : '';
+        //id do usuário seguidor
+        $usuario_seguidor->__set('id_usuario',$_SESSION['id']);
+
+        $acao = $_GET['acao'] ? $_GET['acao'] : '';
+        if ($acao == 'seguir') {
+            $usuario_seguidor->seguirUsuario($id_usuario_seguindo);
+        } else if ($acao == 'deixar_de_seguir'){
+            $usuario_seguidor->deixarSeguirUsuario($id_usuario_seguindo);
+        }
+        
+        header("Location: /quem_seguir");
     }
 }
 
