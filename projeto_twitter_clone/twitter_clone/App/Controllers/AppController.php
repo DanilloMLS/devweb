@@ -53,6 +53,7 @@ class AppController extends Action{
         $this->render('quemSeguir');
     }
 
+    //seguir usuário
     public function acao() {
         $this->validaAutenticacao();
         
@@ -71,6 +72,22 @@ class AppController extends Action{
         }
         
         header("Location: /quem_seguir");
+    }
+
+    public function removerTweet() {
+        $this->validaAutenticacao();
+
+        //se o tweet existir
+        $tweet = Container::getModel("Tweet");
+        $tweet->__set('id',$_POST['id']);
+        $tweet->__set('id_usuario',$_SESSION['id']);
+        $resul = $tweet->getTweet();
+
+        if ($resul) {
+            $resul->remover();
+        }
+
+        header("Location: /timeline");
     }
 }
 
