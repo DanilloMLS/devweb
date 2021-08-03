@@ -96,6 +96,26 @@
                 </div>
             <?php } ?>
 
+			<div class="row mt-5">
+				<nav aria-label="...">
+					<ul class="pagination">
+						<li class="page-item">
+							<a class="page-link" href="?pagina=1" tabindex="-1" aria-disabled="true">Primeira</a>
+						</li>
+
+						<?php for($i = 1; $i <= $this->view->total_de_paginas; $i++) { ?>
+							<li class="page-item <?= $this->view->pagina_ativa == $i ? 'active' : '' ?>">
+								<a href="?pagina=<?= $i ?>" class="page-link"><?= $i ?></a>
+							</li>
+						<?php }?>
+
+						<li class="page-item">
+							<a class="page-link" href="?pagina=<?= $this->view->total_de_paginas ?>">Última</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
 		</div>
 
 
